@@ -38,13 +38,16 @@
 //
 #define DISABLE_DEBUG
 
+// SPI - EEPROM FLASH
+#define SPI_FLASH_EEPROM_EMULATION
+#define SPI_FLASH_EEPROM_OFFSET 0x700000
+#define SPI_FLASH_DEVICE 2
+#define SPI_FLASH_CS_PIN PB12
+
 //
-// EEPROM
+// Servos
 //
-#if NO_EEPROM_SELECTED
-  #define FLASH_EEPROM_EMULATION
- //#define SDCARD_EEPROM_EMULATION
-#endif
+#define SERVO0_PIN        PA8//PB2 //A$BL
 
 //
 // Limit Switches
@@ -160,13 +163,13 @@
 //
 // SD Card
 //
-//#ifndef SDCARD_CONNECTION
-//  #define SDCARD_CONNECTION              ONBOARD
-//#endif
+#ifndef SDCARD_CONNECTION
+  #define SDCARD_CONNECTION              ONBOARD
+#endif
 
 #define SDIO_SUPPORT
 #define SD_DETECT_PIN                       PD12
-//#define ONBOARD_SD_CS_PIN                   PC11
+#define ONBOARD_SD_CS_PIN                   PC11
 
 //
 // LCD / Controller
