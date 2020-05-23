@@ -109,12 +109,12 @@
 //
 // Misc. Functions
 //
-#define POWER_LOSS_PIN                      PA2   // PW_DET
-#define PS_ON_PIN                           PA3   // PW_OFF
+//#define POWER_LOSS_PIN                      PA2   // PW_DET
+//#define PS_ON_PIN                           PA3   // PW_OFF
 
 #define LED_PIN                             PB2
 
-#if HAS_TMC220x
+#if HAS_TMC_UART
   /**
    * TMC2208/TMC2209 stepper drivers
    *
@@ -127,37 +127,24 @@
   //#define E0_HARDWARE_SERIAL Serial1
   //#define E1_HARDWARE_SERIAL Serial1
 
+
   //
   // Software serial
   //
 
-  #ifndef X_SERIAL_TX_PIN
-    #define X_SERIAL_TX_PIN  PA6 //E1_STEP_PIN
-  #endif
-  #ifndef X_SERIAL_RX_PIN
-    #define X_SERIAL_RX_PIN  PA1 //E1_DIR_PIN
-  #endif
+  #define X_SERIAL_TX_PIN PA3 //  E1 EN pin 
+  #define Y_SERIAL_TX_PIN PA6 //  E1 STEP pin 
+  #define Z_SERIAL_TX_PIN PA1 //  E1 DIR pin 
+  #define E0_SERIAL_TX_PIN PE5 // TC-MAX31855 CS pin 
 
-  #ifndef Y_SERIAL_TX_PIN
-    #define Y_SERIAL_TX_PIN  PA6 //E1_STEP_PIN
-  #endif
-  #ifndef Y_SERIAL_RX_PIN
-    #define Y_SERIAL_RX_PIN  PA1 //E1_DIR_PIN
-  #endif
+  #define X_SERIAL_RX_PIN X_SERIAL_TX_PIN
+  #define Y_SERIAL_RX_PIN Y_SERIAL_TX_PIN
+  #define Z_SERIAL_RX_PIN Z_SERIAL_TX_PIN
+  #define E0_SERIAL_RX_PIN E0_SERIAL_TX_PIN
 
-  #ifndef Z_SERIAL_TX_PIN
-    #define Z_SERIAL_TX_PIN  PA6 //E1_STEP_PIN
-  #endif
-  #ifndef Z_SERIAL_RX_PIN
-    #define Z_SERIAL_RX_PIN  PA1 //E1_DIR_PIN
-  #endif
+  // Reduce baud rate for software serial reliability
+  #define TMC_BAUD_RATE 19200
 
-  #ifndef E0_SERIAL_TX_PIN
-    #define E0_SERIAL_TX_PIN PA6 //E1_STEP_PIN
-  #endif
-  #ifndef E0_SERIAL_RX_PIN
-    #define E0_SERIAL_RX_PIN PA1 //E1_DIR_PIN
-  #endif
 #endif
 
 //
