@@ -758,7 +758,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.7, 80.7, 1600, 422 } // Reprinted stock extruder after calibration: 422 (stock was 412)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.5, 80.5, 1600, 422 } // Reprinted stock extruder after calibration: 422 (stock was 412)
 
 /**
  * Default Max Feed Rate (mm/s)
