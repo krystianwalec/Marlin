@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#include "../shared/Marduino.h"
+#include "../../inc/MarlinConfig.h" // Allow pins/pins.h to override SDIO clock / retries
 
 #include <libmaple/sdio.h>
 #include <libmaple/dma.h>
@@ -100,8 +100,18 @@
 #define SDIO_DATA_TIMEOUT                    100U           /* Read data transfer timeout */
 #define SDIO_WRITE_TIMEOUT                   200U           /* Write data transfer timeout */
 
+<<<<<<< HEAD
 //#define SDIO_CLOCK                           18000000       /* 18 MHz */
 #define SDIO_CLOCK                           8000000       /* 8 MHz - random head movement fix */
+=======
+#ifndef SDIO_CLOCK
+  #define SDIO_CLOCK                         18000000       /* 18 MHz */
+#endif
+
+#ifndef SDIO_READ_RETRIES
+  #define SDIO_READ_RETRIES                  3
+#endif
+>>>>>>> ca5a8ea827e99a681fa1dfc7e8d4949ef0c45d9a
 
 // ------------------------
 // Types
