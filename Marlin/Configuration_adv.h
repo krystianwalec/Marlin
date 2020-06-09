@@ -1573,7 +1573,7 @@
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
   #define LIN_ADVANCE_K 0.72    // Unit: mm compression per 1mm/s extruder speed
   //#define LA_DEBUG            // If enabled, this will generate debug information output over USB.
-  //#define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
+  #define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
 #endif
 
 // @section leveling
@@ -1611,17 +1611,10 @@
  * the probe to be unable to reach any points.
  */
 #if PROBE_SELECTED && !IS_KINEMATIC
-<<<<<<< HEAD
-  #define MIN_PROBE_EDGE_LEFT 40
-  #define MIN_PROBE_EDGE_RIGHT 40
-  #define MIN_PROBE_EDGE_FRONT 40
-  #define MIN_PROBE_EDGE_BACK 70
-=======
-  //#define PROBING_MARGIN_LEFT PROBING_MARGIN
-  //#define PROBING_MARGIN_RIGHT PROBING_MARGIN
-  //#define PROBING_MARGIN_FRONT PROBING_MARGIN
-  //#define PROBING_MARGIN_BACK PROBING_MARGIN
->>>>>>> ca5a8ea827e99a681fa1dfc7e8d4949ef0c45d9a
+  #define PROBING_MARGIN_LEFT PROBING_MARGIN
+  #define PROBING_MARGIN_RIGHT PROBING_MARGIN
+  #define PROBING_MARGIN_FRONT PROBING_MARGIN
+  #define PROBING_MARGIN_BACK 70
 #endif
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
