@@ -38,11 +38,14 @@
 //
 #define DISABLE_DEBUG
 
-// SPI - EEPROM FLASH
-#define SPI_FLASH_EEPROM_EMULATION
-#define SPI_FLASH_EEPROM_OFFSET 0x700000
-#define SPI_FLASH_DEVICE 2
-#define SPI_FLASH_CS_PIN PB12
+// // SPI - EEPROM FLASH
+// #define SPI_FLASH_EEPROM_EMULATION
+// #define SPI_FLASH_EEPROM_OFFSET 0x700000
+// #define SPI_FLASH_DEVICE 2
+// #define SPI_FLASH_CS_PIN PB12
+
+// EEPROM
+#define SDCARD_EEPROM_EMULATION
 
 //
 // Servos
@@ -187,4 +190,13 @@
     #define TOUCH_MISO_PIN                  PB14  // SPI2_MISO
     #define TOUCH_MOSI_PIN                  PB15  // SPI2_MOSI
   #endif
+#endif
+
+
+#define SPI_FLASH
+#if ENABLED(SPI_FLASH)
+	#define 	W25QXX_CS_PIN		PB12
+	#define 	W25QXX_MOSI_PIN		PB15
+	#define 	W25QXX_MISO_PIN		PB14
+	#define 	W25QXX_SCK_PIN		PB13
 #endif
