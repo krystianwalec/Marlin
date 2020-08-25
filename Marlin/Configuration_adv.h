@@ -131,7 +131,7 @@
  */
 #if TEMP_SENSOR_CHAMBER
   #define CHAMBER_MINTEMP             5
-  #define CHAMBER_MAXTEMP            60
+  #define CHAMBER_MAXTEMP            90
   #define TEMP_CHAMBER_HYSTERESIS     1   // (°C) Temperature proximity considered "close enough" to the target
   //#define CHAMBER_LIMIT_SWITCHING
   //#define HEATER_CHAMBER_PIN       44   // Chamber heater on/off pin
@@ -478,14 +478,14 @@
 /**
  * M355 Case Light on-off / brightness
  */
-//#define CASE_LIGHT_ENABLE
+#define CASE_LIGHT_ENABLE
 #if ENABLED(CASE_LIGHT_ENABLE)
   //#define CASE_LIGHT_PIN 4                  // Override the default pin if needed
   #define INVERT_CASE_LIGHT false             // Set true if Case Light is ON when pin is LOW
-  #define CASE_LIGHT_DEFAULT_ON true          // Set default power-up state on
-  #define CASE_LIGHT_DEFAULT_BRIGHTNESS 105   // Set default power-up brightness (0-255, requires PWM pin)
-  //#define CASE_LIGHT_MAX_PWM 128            // Limit pwm
-  //#define CASE_LIGHT_MENU                   // Add Case Light options to the LCD menu
+  #define CASE_LIGHT_DEFAULT_ON false          // Set default power-up state on
+  #define CASE_LIGHT_DEFAULT_BRIGHTNESS 204   // Set default power-up brightness (0-255, requires PWM pin)
+  #define CASE_LIGHT_MAX_PWM 127            // Limit pwm
+  #define CASE_LIGHT_MENU                   // Add Case Light options to the LCD menu
   //#define CASE_LIGHT_NO_BRIGHTNESS          // Disable brightness control. Enable for non-PWM lighting.
   //#define CASE_LIGHT_USE_NEOPIXEL           // Use Neopixel LED as case light, requires NEOPIXEL_LED.
   #if ENABLED(CASE_LIGHT_USE_NEOPIXEL)
@@ -1571,7 +1571,7 @@
 #define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
-  #define LIN_ADVANCE_K 0.72    // Unit: mm compression per 1mm/s extruder speed
+  #define LIN_ADVANCE_K 0.81    // Unit: mm compression per 1mm/s extruder speed
   //#define LA_DEBUG            // If enabled, this will generate debug information output over USB.
   #define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
 #endif
@@ -1977,7 +1977,7 @@
                                                   // This short retract is done immediately, before parking the nozzle.
   #define FILAMENT_CHANGE_UNLOAD_FEEDRATE     45  // (mm/s) Unload filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_UNLOAD_ACCEL       100  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_UNLOAD_LENGTH      680  // (mm) The length of filament for a complete unload.
+  #define FILAMENT_CHANGE_UNLOAD_LENGTH      590  // (mm) The length of filament for a complete unload.
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
                                                   //   Set to 0 for manual unloading.
@@ -1986,12 +1986,12 @@
                                                   // 0 to disable start loading and skip to fast load only
   #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE  45  // (mm/s) Load filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_FAST_LOAD_ACCEL    100  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH   680  // (mm) Load length of filament, from extruder gear to nozzle.
+  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH   590  // (mm) Load length of filament, from extruder gear to nozzle.
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
   #define ADVANCED_PAUSE_CONTINUOUS_PURGE         // Purge continuously up to the purge length until interrupted.
   #define ADVANCED_PAUSE_PURGE_FEEDRATE        3  // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
-  #define ADVANCED_PAUSE_PURGE_LENGTH         50  // (mm) Length to extrude after loading.
+  #define ADVANCED_PAUSE_PURGE_LENGTH         75  // (mm) Length to extrude after loading.
                                                   //   Set to 0 for manual extrusion.
                                                   //   Filament can be extruded repeatedly from the Filament Change menu
                                                   //   until extrusion is consistent, and to purge old filament.
@@ -2211,7 +2211,7 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT     1000
+    #define E0_CURRENT      940
     #define E0_MICROSTEPS    16
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1

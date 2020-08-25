@@ -415,7 +415,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 67
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -425,7 +425,7 @@
 #define TEMP_SENSOR_7 0
 #define TEMP_SENSOR_BED 1
 #define TEMP_SENSOR_PROBE 0
-#define TEMP_SENSOR_CHAMBER 0
+#define TEMP_SENSOR_CHAMBER 1
 
 // Dummy thermistor constant temperature readings, for use with 998 and 999
 #define DUMMY_THERMISTOR_998_VALUE 25
@@ -459,7 +459,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 275
+#define HEATER_0_MAXTEMP 450
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -503,10 +503,10 @@
   //#define DEFAULT_Ki 2.25
   //#define DEFAULT_Kd 440
 
-  // Sapphire Pro stock hotend AutoTuned
-  #define DEFAULT_Kp 18
-  #define DEFAULT_Ki 1.3
-  #define DEFAULT_Kd 61
+  // Mosquito autotuned
+  #define DEFAULT_Kp 31.02
+  #define DEFAULT_Ki 4.03
+  #define DEFAULT_Kd 59.68
 
   // Sapphire Pro stock hotend with PT100 manually tuned
   //#define DEFAULT_Kp 19
@@ -762,14 +762,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.5, 80.5, 1600, 414 } // Modified stock extruder after calibration: 414 (stock was 412)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.5, 80.5, 1600, 409 } // Hemera extruder: 409 (stock was 414)
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 200, 200, 4, 70 }
+#define DEFAULT_MAX_FEEDRATE          { 200, 200, 4, 45 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -991,11 +991,11 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, -36, -1.65 } // z offset compensates 0.1mm for hotend expansion
+#define NOZZLE_TO_PROBE_OFFSET { 0, -26, -2.32 } // z offset compensates 0.1mm for hotend expansion
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 40
+#define PROBING_MARGIN 20
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 40*60
@@ -1136,7 +1136,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 210
+#define Z_MAX_POS 230
 
 /**
  * Software Endstops

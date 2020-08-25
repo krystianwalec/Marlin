@@ -91,17 +91,20 @@
 // Temperature Sensors
 //
 #define TEMP_0_PIN                          PC1   // TH1
-#define TEMP_1_PIN                          PC2   // TH2
+//#define TEMP_1_PIN                          PC2   // TH2
+#define TEMP_CHAMBER_PIN                          PC2   // TH2
 #define TEMP_BED_PIN                        PC0   // TB1
 
 //
 // Heaters / Fans
 //
 #define HEATER_0_PIN                        PC3   // HEATER1
-#define HEATER_1_PIN                        PB0   // HEATER2
+//#define HEATER_1_PIN                        PB0   // HEATER2
 #define HEATER_BED_PIN                      PA0   // HOT BED
 
 #define FAN_PIN                             PB1   // FAN
+
+#define CASE_LIGHT_PIN                      PB0   // Heater 2 -> lights
 
 //
 // Thermocouples
